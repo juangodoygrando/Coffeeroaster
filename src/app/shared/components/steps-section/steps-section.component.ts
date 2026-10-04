@@ -1,9 +1,9 @@
 import { Component, input } from '@angular/core';
-import { step } from '../../interfaces/create-plan-steps.interface';
+import { HowItWorksStep } from '../../interfaces/how-it-works-step.interface';
 import { StepCardComponent } from './step-card/step-card.component';
 
 @Component({
-  selector: 'app-steps-section',
+  selector: 'coffeeroasters-steps-section',
   standalone: true,
   imports: [StepCardComponent],
   templateUrl: './steps-section.component.html',
@@ -13,7 +13,7 @@ import { StepCardComponent } from './step-card/step-card.component';
   },
 })
 export class StepsSectionComponent {
-  step = input<step[]>();
+  step = input<HowItWorksStep[]>();
 
   variant = input<'primary' | 'secondary'>('secondary');
 }

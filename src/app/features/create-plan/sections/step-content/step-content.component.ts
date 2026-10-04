@@ -1,10 +1,10 @@
 import { Component, inject, input } from '@angular/core';
-import {OrderState,Stepper,} from '../../../../../shared/interfaces/steppers.interface';
-import { CoffeePlanService } from '../../../../../services/coffee-plan.service';
-import { WizardService } from '../../../../../services/wizard.service';
+import { CoffeePlanService } from '../../../../services/coffee-plan.service';
+import { WizardService } from '../../../../services/wizard.service';
+import { Stepper, OrderState } from '../../../../shared/interfaces/steppers.interface';
 
 @Component({
-  selector: 'app-step-content',
+  selector: 'coffeeroasters-step-content',
   imports: [],
   templateUrl: './step-content.component.html',
   styleUrl: './step-content.component.css',

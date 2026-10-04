@@ -1,6 +1,6 @@
-import { step } from "../shared/interfaces/create-plan-steps.interface";
+import { HowItWorksStep } from "../shared/interfaces/how-it-works-step.interface";
 
-export const steps: step[] = [
+export const steps: HowItWorksStep[] = [
   {
     step: '01',
     title: 'Pick your coffee',

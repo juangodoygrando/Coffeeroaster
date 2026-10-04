@@ -1,9 +1,9 @@
 import { Component, inject, input } from '@angular/core';
-import { Stepper } from '../../../../../shared/interfaces/steppers.interface';
-import { WizardService } from '../../../../../services/wizard.service';
+import { WizardService } from '../../../../services/wizard.service';
+import { Stepper } from '../../../../shared/interfaces/steppers.interface';
 
 @Component({
-  selector: 'app-step-item',
+  selector: 'coffeeroasters-step-item',
   imports: [],
   templateUrl: './step-item.component.html',
 

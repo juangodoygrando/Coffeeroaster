@@ -1,9 +1,9 @@
 import { Component, inject, input } from '@angular/core';
-import { CoffeePlanService } from '../../../../../services/coffee-plan.service';
-import { getStateById } from '../../../../../data/steppers.data';
+import { CoffeePlanService } from '../../../../services/coffee-plan.service';
+import { getStateById } from '../../../../data/steppers.data';
 
 @Component({
-  selector: 'app-step-summary',
+  selector: 'coffeeroasters-step-summary',
   imports: [],
   templateUrl: './step-summary.component.html',
   styleUrl: './step-summary.component.css',

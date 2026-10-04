@@ -1,41 +1,42 @@
 <header
-  class="flex justify-between items-center py-2 border-b border-none sm:mt-3 md:mt-4 z-50"
+  class="relative flex justify-between items-center py-2 z-50 sm:mt-3 md:mt-4"
 >
-  <div class="flex justify-between w-full mt-2 mb-4">
+  <div class="flex justify-between items-center w-full mt-2 mb-4">
     <img
       src="/assets/shared/desktop/logo.svg"
       alt="logo coffeeroasters"
-      class="h-4 md:h-6"
+      class="h-6 md:h-10"
     />
 
-    <button (click)="toggleMenu()" class="md:hidden border-none">
-      @if(!menuOpen()){<img
-        class="burguerMenuIcon"
-        src="/assets/shared/mobile/icon-hamburger.svg"
-        alt="Menu"
-      />}@else {<img
-        class="burguerMenu"
-        src="/assets/shared/mobile/icon-close.svg"
-        alt="Close menu"
-      />}
+    <button (click)="toggleMenu()" class="md:hidden border-none w-4 h-4">
+      <img
+        [src]="
+          menuOpen()
+            ? '/assets/shared/mobile/icon-close.svg'
+            : '/assets/shared/mobile/icon-hamburger.svg'
+        "
+        [alt]="menuOpen() ? 'Close menu' : 'Open menu'"
+      />
     </button>
 
-  <nav
-    class="hidden md:flex gap-6 whitespace-nowrap text-gray-500 font-semibold text-[10px] md:text-base"
-  >
-    <a routerLink="/home">HOME</a>
-    <a routerLink="/about-us">ABOUT US</a>
-    <a routerLink="/create-plan">CREATE YOU PLAN</a>
-  </nav>
+    <nav
+      class="hidden md:flex gap-6 whitespace-nowrap text-gray-500 font-semibold text-[10px] md:text-base"
+    >
+      <a routerLink="/home">HOME</a>
+      <a routerLink="/about-us">ABOUT US</a>
+      <a routerLink="/create-plan">CREATE YOUR PLAN</a>
+    </nav>
   </div>
 </header>
 
-@if(menuOpen()){
-<nav
-  class="fixed top-16 w-screen h-screen left-0 z-40 bg-white/90 flex flex-col text-center gap-4 font-bold"
->
-  <a href="#">Home</a>
-  <a href="#">About Us</a>
-  <a href="#">Create Your Plan</a>
-</nav>
+@if (menuOpen()) {
+  <nav
+    class="fixed inset-0 z-40 pt-24 bg-coffee-cream/90 flex flex-col text-center gap-8 font-black text-2xl text-coffee-dark-blue"
+  >
+    <a routerLink="/home" (click)="menuOpen.set(false)">Home</a>
+    <a routerLink="/about-us" (click)="menuOpen.set(false)">About Us</a>
+    <a routerLink="/create-plan" (click)="menuOpen.set(false)"
+      >Create Your Plan</a
+    >
+  </nav>
 }

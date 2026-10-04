@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-home-why-choose-us-section',
+  selector: 'coffeeroasters-why-choose-us',
   imports: [],
-  templateUrl: './home-why-choose-us-section.component.html',
+  templateUrl: './why-choose-us.component.html',
   styles: ``,
 })
-export class HomeWhyChooseUsSectionComponent {
+export class WhyChooseUsComponent {
   benefits = [
     {
       icon: 'assets/home/desktop/icon-coffee-bean.svg',

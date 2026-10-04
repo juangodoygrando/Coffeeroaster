@@ -1,24 +1,24 @@
 import { Component } from '@angular/core';
-import { step } from '../../../../shared/interfaces/create-plan-steps.interface';
-import { StepperComponent } from '../../sections/create-plan-stepper-section/stepper/stepper.component';
-import { steps } from '../../../../data/how-it-work.data';
+import { HowItWorksStep } from '../../../../shared/interfaces/how-it-works-step.interface';
+import { StepperComponent } from '../../sections/stepper/stepper.component';
+import { steps } from '../../../../data/how-it-works.data';
 import { StepsSectionComponent } from '../../../../shared/components/steps-section/steps-section.component';
 import { HeroData } from '../../../../shared/interfaces/hero.interface';
 import { HeroSectionComponent } from '../../../../shared/components/hero-section/hero-section.component';
 
 @Component({
-  selector: 'coffeeroaster-create-plan-page',
+  selector: 'coffeeroasters-create-plan-page',
   imports: [StepperComponent, StepsSectionComponent, HeroSectionComponent],
   templateUrl: './create-plan-page.component.html',
   styleUrl: './create-plan-page.component.css',
 })
 export class CreatePlanPageComponent {
-  stepArray: step[] = steps;
+  stepArray: HowItWorksStep[] = steps;
 
   heroCreatePlan: HeroData = {
-    title: 'Create plan',
+    title: 'Create a plan',
     description:
-      'Coffee the way you wanted it to be.For coffe delivered omorrow,or next week.For whatever brew method you use.For choise, for onvenience, for quality.',
+      'Build a subscription plan that best fits your needs. We offer an assortment of the best artisan coffees from around the globe delivered fresh to your door.',
     image: '/assets/plan/mobile/image-hero-blackcup.jpg',
     className: 'createPlan',
   };

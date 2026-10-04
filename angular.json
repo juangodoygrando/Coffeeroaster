@@ -8,7 +8,7 @@
       "schematics": {},
       "root": "",
       "sourceRoot": "src",
-      "prefix": "coffeeroasters-",
+      "prefix": "coffeeroasters",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -59,6 +59,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "hmr": true,
+            "liveReload": true
+          },
           "configurations": {
             "production": {
               "buildTarget": "cofferoasters:build:production"

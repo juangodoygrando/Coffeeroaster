@@ -3,7 +3,7 @@ import { HeroData } from '../../interfaces/hero.interface';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'coffeeroaster-hero-section',
+  selector: 'coffeeroasters-hero-section',
   standalone: true,
   imports: [RouterLink],
   templateUrl: './hero-section.component.html',

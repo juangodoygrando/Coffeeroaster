@@ -1,0 +1,10 @@
+::ng-deep .aboutUs {
+  height: 15rem;
+  background-image: url("/assets/about/mobile/image-hero-whitecup.jpg");
+}
+
+@media (min-width: 768px) {
+  ::ng-deep .aboutUs {
+    background-image: url("/assets/about/desktop/image-hero-whitecup.jpg");
+  }
+}

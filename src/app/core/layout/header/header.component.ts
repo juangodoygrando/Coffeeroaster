@@ -2,7 +2,7 @@ import { Component, signal } from '@angular/core';
 import { RouterLink } from "@angular/router";
 
 @Component({
-  selector: 'cofferoaster-header',
+  selector: 'coffeeroasters-header',
   standalone: true,
   imports: [RouterLink],
   templateUrl: './header.component.html',

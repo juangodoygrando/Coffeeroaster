@@ -1,7 +1,7 @@
-import { collection } from "../shared/interfaces/ourCollection.interface";
+import { CollectionItem } from "../shared/interfaces/our-collection.interface";
 
 
-export const ourCollection: collection[] = [
+export const ourCollection: CollectionItem[] = [
   {
     collectionImage: 'assets/home/desktop/image-gran-espresso.png',
     collectionTitle: 'Gran Espresso',

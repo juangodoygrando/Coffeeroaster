@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { HomeOurCollectionSectionComponent } from '../../sections/home-our-collection-section/home-our-collection-section.component';
-import { HomeWhyChooseUsSectionComponent } from '../../sections/home-why-choose-us-section/home-why-choose-us-section.component';
-import { steps } from '../../../../data/how-it-work.data';
-import { step } from '../../../../shared/interfaces/create-plan-steps.interface';
+import { OurCollectionComponent } from '../../sections/our-collection/our-collection.component';
+import { WhyChooseUsComponent } from '../../sections/why-choose-us/why-choose-us.component';
+import { steps } from '../../../../data/how-it-works.data';
+import { HowItWorksStep } from '../../../../shared/interfaces/how-it-works-step.interface';
 import { StepsSectionComponent } from '../../../../shared/components/steps-section/steps-section.component';
 
 import { HeroData } from '../../../../shared/interfaces/hero.interface';
@@ -10,10 +10,10 @@ import { HeroSectionComponent } from '../../../../shared/components/hero-section
 import { ButtonCreatePlanComponent } from "../../../../shared/components/button-create-plan/button-create-plan.component";
 
 @Component({
-  selector: 'app-home-page',
+  selector: 'coffeeroasters-home-page',
   imports: [
-    HomeOurCollectionSectionComponent,
-    HomeWhyChooseUsSectionComponent,
+    OurCollectionComponent,
+    WhyChooseUsComponent,
     StepsSectionComponent,
     HeroSectionComponent,
     ButtonCreatePlanComponent
@@ -22,7 +22,7 @@ import { ButtonCreatePlanComponent } from "../../../../shared/components/button-
   styleUrl: './home-page.component.css',
 })
 export class HomePageComponent {
-  stepArray: step[] = steps;
+  stepArray: HowItWorksStep[] = steps;
 
   heroHome: HeroData = {
     title: 'Great coffee made simple.',

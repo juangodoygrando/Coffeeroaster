@@ -1,0 +1,27 @@
+<section
+  class="flex flex-col items-center gap-12 text-center md:gap-16 md:text-left lg:gap-32 lg:px-[5.5rem]"
+  [class]="imagePosition() === 'right' ? 'md:flex-row-reverse' : 'md:flex-row'"
+>
+  <picture class="w-full md:w-auto md:shrink-0">
+    <source media="(min-width: 1024px)" [srcset]="section().image.desktop" />
+    <source media="(min-width: 768px)" [srcset]="section().image.tablet" />
+    <img
+      [src]="section().image.mobile"
+      [alt]="section().image.alt"
+      class="w-full h-[25rem] rounded-lg object-cover md:w-[17.5rem] md:h-[29.375rem] lg:w-[27.8rem] lg:h-[32.5rem]"
+    />
+  </picture>
+
+  <div class="flex flex-col gap-8 max-w-[33.75rem] md:gap-6 lg:gap-8">
+    <h2
+      class="font-fraunces font-black text-coffee-dark-blue text-[2rem] leading-9 lg:text-[2.5rem] lg:leading-[3rem]"
+    >
+      {{ section().title }}
+    </h2>
+    <p
+      class="font-barlow text-coffee-grey text-[0.9375rem] leading-[1.5625rem] lg:text-base lg:leading-[1.625rem]"
+    >
+      {{ section().description }}
+    </p>
+  </div>
+</section>
