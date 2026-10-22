@@ -2,7 +2,7 @@ import { Component ,inject,input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-button-create-plan',
+  selector: 'coffeeroasters-button-create-plan',
   imports: [],
   templateUrl: './button-create-plan.component.html',
 })

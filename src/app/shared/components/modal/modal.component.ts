@@ -1,7 +1,7 @@
 import { Component, output } from '@angular/core';
 
 @Component({
-  selector: 'app-modal',
+  selector: 'coffeeroasters-modal',
   imports: [],
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.css',

@@ -1,0 +1,13 @@
+<section class="mb-20 md:mb-36 lg:mb-40 lg:px-[5.5rem]">
+  <h2
+    class="mb-20 text-center font-fraunces font-black text-coffee-grey text-2xl md:mb-14 md:text-left lg:mb-20"
+  >
+    Our headquarters
+  </h2>
+
+  <div class="grid grid-cols-1 gap-20 md:grid-cols-3 md:gap-3 lg:gap-8">
+    @for (headquarter of headquarters; track headquarter.country) {
+      <coffeeroasters-headquarter-card [headquarter]="headquarter" />
+    }
+  </div>
+</section>
