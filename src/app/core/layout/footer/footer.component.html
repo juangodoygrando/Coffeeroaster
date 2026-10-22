@@ -1,33 +1,43 @@
-<div
-  class="bg-[#343e4c] flex flex-col items-center gap-6 py-6 my-8 md:flex-row md:justify-between md:p-12"
+<footer
+  class="flex flex-col items-center gap-12 my-8 py-14 px-6 bg-coffee-dark-blue lg:flex-row lg:py-12 lg:px-[5.5rem]"
 >
-  <img
-    src="/assets/shared/desktop/logofooter.svg"
-    alt="logo coffeeroasters"
-    class="h-5 md:h-8"
-  />
-  <div
-    class="text-gray-400 text-[13px] flex justify-between w-10/12 items-center md:justify-center md:gap-8 md:text-sm"
-  >
-    <a routerLink="/home">HOME</a>
-    <a routerLink="/about-us">ABOUT US</a>
-    <a routerLink="/create-plan">CREATE YOUR PLAN </a>
-  </div>
-  <div class="grid grid-cols-3 gap-4">
+  <a routerLink="/home" class="shrink-0">
     <img
-      src="/assets/shared/desktop/icon-facebook.svg"
-      alt="Facebook"
-      class="h-5 md:h-8"
+      src="/assets/shared/desktop/logofooter.svg"
+      alt="Coffeeroasters"
+      class="h-6 w-auto md:h-[26px]"
     />
-    <img
-      src="/assets/shared/desktop/icon-twitter.svg"
-      alt="Twitter"
-      class="h-5 md:h-8"
-    />
-    <img
-      src="/assets/shared/desktop/icon-instagram.svg"
-      alt="Instagram"
-      class="h-5 md:h-8"
-    />
-  </div>
-</div>
+  </a>
+
+  <nav aria-label="Footer">
+    <ul
+      class="flex flex-col items-center gap-6 font-barlow font-bold text-xs uppercase tracking-[0.06em] text-coffee-grey md:flex-row md:gap-11 lg:ml-12"
+    >
+      @for (link of navLinks; track link.path) {
+        <li>
+          <a
+            [routerLink]="link.path"
+            class="transition-colors duration-200 hover:text-coffee-cream"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+
+  <ul class="flex items-center gap-6 lg:ml-auto">
+    @for (social of socialLinks; track social.name) {
+      <li>
+        <a
+          [href]="social.url"
+          [attr.aria-label]="social.name"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-icon block w-6 h-6 bg-coffee-cream transition-colors duration-200 hover:bg-coffee-pale-orange"
+          [style.--icon]="'url(' + social.icon + ')'"
+        ></a>
+      </li>
+    }
+  </ul>
+</footer>

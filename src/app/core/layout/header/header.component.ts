@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterLink } from "@angular/router";
+import { navLinks } from '../../../data/navigation.data';
 
 @Component({
   selector: 'coffeeroasters-header',
@@ -9,6 +10,7 @@ import { RouterLink } from "@angular/router";
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
+  navLinks = navLinks;
   menuOpen = signal(false);
 
   toggleMenu() {

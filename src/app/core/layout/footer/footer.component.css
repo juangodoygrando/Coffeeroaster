@@ -1,0 +1,8 @@
+/*
+ * The SVG is used as a mask so its color comes from background-color.
+ * That lets Tailwind's hover:bg-* recolor the icon, which an <img> can't do.
+ */
+.social-icon {
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
+}
