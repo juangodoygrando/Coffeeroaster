@@ -17,13 +17,6 @@ export const routes: Routes = [
     component: HomePageComponent,
   },
   {
-    path: 'about-us',
-    loadComponent: () =>
-      import('./features/about-us/pages/under-construction/under-construction.component').then(
-        (m) => m.UnderConstructionComponent,
-      ),
-  },
-  {
     path: '**',
     redirectTo: '/home',
   },
