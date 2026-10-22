@@ -1,0 +1,19 @@
+<article class="flex flex-col items-center text-center md:items-start md:text-left">
+  <!-- Decorative: the country name is already in the heading -->
+  <img [src]="headquarter().illustration" alt="" class="h-[50px] w-auto" />
+
+  <h3
+    class="mt-12 mb-6 font-fraunces font-black text-coffee-dark-blue text-[1.75rem] leading-9 lg:mt-[4.5rem] lg:text-[2rem]"
+  >
+    {{ headquarter().country }}
+  </h3>
+
+  <address
+    class="not-italic font-barlow text-coffee-dark-blue text-[0.9375rem] leading-[1.5625rem] lg:text-base lg:leading-[1.625rem]"
+  >
+    @for (line of headquarter().addressLines; track line) {
+      <span class="block">{{ line }}</span>
+    }
+    <a [href]="'tel:' + headquarter().phone" class="block">{{ headquarter().phone }}</a>
+  </address>
+</article>

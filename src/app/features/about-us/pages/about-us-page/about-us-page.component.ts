@@ -1,13 +1,18 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { HeroSectionComponent } from '../../../../shared/components/hero-section/hero-section.component';
 import { HeroData } from '../../../../shared/interfaces/hero.interface';
-import { OurCommitmentComponent } from "../../sections/our-commitment/our-commitment.component";
+import { OurCommitmentComponent } from '../../sections/our-commitment/our-commitment.component';
 import { UncompromisingQualityComponent } from '../../sections/uncompromising-quality/uncompromising-quality.component';
+import { OurHeadquartersComponent } from '../../sections/our-headquarters/our-headquarters.component';
 
 @Component({
   selector: 'coffeeroasters-about-us-page',
-  standalone: true,
-  imports: [HeroSectionComponent, OurCommitmentComponent, UncompromisingQualityComponent],
+  imports: [
+    HeroSectionComponent,
+    OurCommitmentComponent,
+    UncompromisingQualityComponent,
+    OurHeadquartersComponent,
+  ],
   templateUrl: './about-us-page.component.html',
   styleUrls: ['./about-us-page.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
