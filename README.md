@@ -1,114 +1,187 @@
-# Cofferoasters
- 
-This project is a web application developed in Angular 19 that allows users to create personalized coffee subscription plans. It features an interactive step-by-step wizard where users can customize their coffee preferences, view real-time pricing, and complete their order through a modern, responsive interface.
- 
+# Coffeeroasters
+
+Coffeeroasters is a multi-page web application built with Angular 19 for a coffee subscription service. It includes a landing page, an About Us page and an interactive step-by-step wizard where users customize their coffee plan, see the price update in real time and confirm their order through a responsive interface.
+
+👉 [Go to site](https://coffeeroasters-sprint5.netlify.app/)
+
 <!-- Add your demo screenshots here -->
 <!-- ![Desktop View](public/assets/demo/demo-desktop.png) -->
 <!-- ![Mobile View](public/assets/demo/demo-mobile.png) -->
- 
+
+## Pages
+
+| Route | Page | Content |
+|-------|------|---------|
+| `/home` | Home | Hero, our collection, why choose us and how it works |
+| `/about-us` | About Us | Hero, our commitment, uncompromising quality and our headquarters |
+| `/create-plan` | Create plan | Hero, how it works and the subscription wizard |
+
+Any unknown route redirects to `/home`.
+
 ## Objectives
- 
-- **Interactive Subscription Wizard:** Implement a 5-step wizard that guides users through creating their perfect coffee subscription plan.
- 
-- **Real-Time Price Calculation:** Dynamic pricing that updates instantly based on user selections (brew method, bean type, quantity, and delivery frequency).
- 
-- **Modern Angular Architecture:** Built with Angular 19 using standalone components, signals for state management, and the latest control flow syntax.
- 
-- **Responsive Design:** Fully responsive interface using Tailwind CSS that adapts seamlessly across mobile, tablet, and desktop devices.
- 
-- **Type-Safe Development:** Strict TypeScript implementation with well-defined interfaces for all data structures.
- 
-- **Unit Testing:** Comprehensive test coverage for critical business logic including pricing calculations and order validation.
- 
+
+- **Interactive Subscription Wizard:** A 5-step wizard that guides users through creating their coffee subscription plan.
+- **Real-Time Price Calculation:** Pricing updates instantly based on the selected brew method, bean type, quantity and delivery frequency.
+- **Reusable Components:** Shared UI pieces (hero, image + text section, steps, cards) configured through signal inputs instead of duplicated markup.
+- **Modern Angular Architecture:** Standalone components, signals for state management and the built-in control flow syntax.
+- **Responsive Design:** Mobile-first layouts with Tailwind CSS for mobile, tablet and desktop.
+- **Accessibility:** Semantic HTML (`header`, `nav`, `footer`, `address`), ARIA attributes and descriptive alt text.
+- **Type-Safe Development:** Strict TypeScript with interfaces for every data structure.
+- **Unit Testing:** Tests for the core business logic, including pricing calculations and order validation.
+
 ## Features
- 
+
 ### Coffee Plan Customization
 - **Brew Method:** Choose between Capsule, Filter, or Espresso
 - **Bean Type:** Select Single Origin, Decaf, or Blended
 - **Bag Size:** Pick 250g, 500g, or 1000g quantities
 - **Grind Level:** Wholebean, Filter, or Cafetiére (disabled for Capsule)
 - **Delivery Frequency:** Weekly, Every 2 weeks, or Monthly
- 
+
 ### Smart Features
 - Automatic grind level disable when Capsule is selected
 - Real-time order summary with formatted description
 - Modal confirmation with complete order review
 - Instant price calculation based on all selections
- 
+
+### Layout
+- Full-screen mobile menu with the same navigation links as the desktop header and the footer
+- Responsive images served per breakpoint with `<picture>` and `<source>`
+- Social icons recolored on hover using CSS masks
+
 ## Folder Structure
- 
+
 ```
-cofferoasters/
+coffeeroasters/
 │
-├── public/                      # Static assets
-│   └── assets/
-│       ├── shared/              # Shared icons and logos
-│       │   ├── mobile/          # Mobile-specific assets
-│       │   └── desktop/         # Desktop-specific assets
-│       ├── home/                # Home page assets
-│       ├── about/               # About page assets
-│       └── plan/                # Create plan page assets
+├── public/assets/               # Static assets (mobile, tablet and desktop versions)
+│   ├── shared/                  # Logos and icons
+│   ├── home/                    # Home page assets
+│   ├── about/                   # About Us page assets
+│   └── plan/                    # Create plan page assets
 │
-├── src/                         # Main source code
+├── src/
 │   ├── app/
-│   │   ├── core/                # Core modules
-│   │   │   └── layout/          # Layout components
-│   │   │       ├── header/      # Navigation header
-│   │   │       └── footer/      # Page footer
+│   │   ├── core/layout/         # App shell
+│   │   │   ├── header/          # Header and mobile menu
+│   │   │   └── footer/          # Footer
 │   │   │
-│   │   ├── features/            # Feature modules
-│   │   │   └── create-plan/     # Create plan feature
-│   │   │       ├── pages/       # Page components
-│   │   │       ├── components/  # Feature-specific components
-│   │   │       └── create-plan-stepper-section/
-│   │   │           ├── stepper/       # Main stepper container
+│   │   ├── features/            # One folder per page
+│   │   │   ├── home/
+│   │   │   │   ├── pages/home-page/
+│   │   │   │   └── sections/
+│   │   │   │       ├── our-collection/
+│   │   │   │       └── why-choose-us/
+│   │   │   │
+│   │   │   ├── about-us/
+│   │   │   │   ├── pages/about-us-page/
+│   │   │   │   └── sections/
+│   │   │   │       ├── our-commitment/
+│   │   │   │       ├── uncompromising-quality/
+│   │   │   │       └── our-headquarters/
+│   │   │   │           └── headquarter-card/
+│   │   │   │
+│   │   │   └── create-plan/
+│   │   │       ├── pages/create-plan-page/
+│   │   │       └── sections/
+│   │   │           ├── stepper/       # Wizard container
 │   │   │           ├── step-item/     # Sidebar navigation
-│   │   │           ├── step-content/  # Accordion content
+│   │   │           ├── step-content/  # Accordion with options
 │   │   │           └── step-summary/  # Order summary
 │   │   │
-│   │   ├── shared/              # Shared resources
+│   │   ├── shared/
 │   │   │   ├── components/      # Reusable components
-│   │   │   │   ├── modal/       # Generic modal component
-│   │   │   │   └── button-create-plan/
+│   │   │   │   ├── hero-section/
+│   │   │   │   ├── image-text-section/
+│   │   │   │   ├── steps-section/
+│   │   │   │   ├── button-create-plan/
+│   │   │   │   └── modal/
 │   │   │   └── interfaces/      # TypeScript interfaces
 │   │   │
-│   │   ├── services/            # Application services
-│   │   │   ├── coffee-plan.service.ts    # Order state management
-│   │   │   ├── pricing.service.ts        # Price calculations
-│   │   │   ├── wizard.service.ts         # Wizard navigation
-│   │   │   └── test/                     # Service tests
+│   │   ├── data/                # Static content
+│   │   │   ├── navigation.data.ts     # Header/footer links and social links
+│   │   │   ├── how-it-works.data.ts
+│   │   │   ├── our-collection.data.ts
+│   │   │   ├── headquarters.data.ts
+│   │   │   └── steppers.data.ts       # Wizard steps and options
 │   │   │
-│   │   ├── data/                # Static data
-│   │   │   └── steppers.data.ts # Stepper configuration
+│   │   ├── services/            # Application services
+│   │   │   ├── coffee-plan.service.ts # Order state management
+│   │   │   ├── pricing.service.ts     # Price calculations
+│   │   │   ├── wizard.service.ts      # Wizard navigation
+│   │   │   └── test/                  # Service tests
 │   │   │
 │   │   ├── app.component.ts     # Root component
 │   │   ├── app.config.ts        # App configuration
 │   │   └── app.routes.ts        # Route definitions
 │   │
-│   ├── index.html               # Main HTML file
+│   ├── index.html
 │   ├── styles.css               # Global styles
 │   └── _redirects               # Netlify SPA configuration
 │
-├── angular.json                 # Angular CLI configuration
-├── tsconfig.json                # TypeScript configuration
-├── tailwind.config.js           # Tailwind CSS configuration
-├── eslint.config.js             # ESLint configuration
-└── package.json                 # Dependencies and scripts
+├── angular.json
+├── tailwind.config.js           # Tailwind theme (design tokens)
+├── eslint.config.js
+└── package.json
 ```
- 
+
+### Naming conventions
+- Folders and files use kebab-case (`our-headquarters.component.ts`).
+- Every component selector uses the `coffeeroasters-` prefix.
+- Page content lives in `data/` files and is passed to components through inputs.
+
 ## Technologies Used
- 
-- **Angular 19** - Latest version with standalone components and signals
+
+- **Angular 19** - Standalone components, signals and built-in control flow
 - **TypeScript 5.7** - Strict type checking enabled
-- **Tailwind CSS 3.4** - Utility-first CSS framework
-- **Karma + Jasmine** - Unit testing framework
-- **ESLint** - Code linting with Angular-specific rules
-- **Netlify** - Deployment configuration included
- 
+- **Tailwind CSS 3.4** - Utility-first CSS with custom design tokens
+- **Karma + Jasmine** - Unit testing
+- **ESLint** - Linting with Angular-specific rules
+- **Netlify** - Deployment
+
 ## Architecture Highlights
- 
-### State Management with Signals
-The application uses Angular Signals for reactive state management:
+
+### Reusable components with signal inputs
+Shared components receive their content through inputs, so the same component renders different pages or sections:
+```typescript
+@Component({
+  selector: 'coffeeroasters-hero-section',
+  standalone: true,
+  imports: [RouterLink],
+  templateUrl: './hero-section.component.html',
+})
+export class HeroSectionComponent {
+  hero = input.required<HeroData>();
+}
+```
+```html
+<coffeeroasters-hero-section [hero]="heroAboutUs" />
+```
+
+### Data separated from markup
+Repeated blocks are rendered from data files with `@for`:
+```html
+@for (headquarter of headquarters; track headquarter.country) {
+  <coffeeroasters-headquarter-card [headquarter]="headquarter" />
+}
+```
+Adding a new headquarters or navigation link only requires a new entry in `data/`.
+
+### Design tokens
+The style guide colors and fonts are defined once in `tailwind.config.js` and used as utilities (`bg-coffee-dark-blue`, `text-coffee-grey`, `font-fraunces`, `font-barlow`):
+```js
+colors: {
+  coffee: {
+    cyan: "#0E8784",
+    "dark-blue": "#333D4B",
+    "pale-orange": "#FDD6BA",
+    cream: "#FEFCF7",
+    grey: "#83888F",
+  },
+},
+```
+
+### State management with signals
 ```typescript
 // CoffeePlanService
 orderState = signal<OrderState>({
@@ -118,69 +191,47 @@ orderState = signal<OrderState>({
   grindLevel: null,
   delivery: null
 });
- 
+
 isOrderComplete = computed(() => /* validation logic */);
 ```
- 
-### Standalone Components
-All components are standalone, eliminating the need for NgModules:
-```typescript
-@Component({
-  selector: 'app-stepper',
-  standalone: true,
-  imports: [StepItemComponent, StepContentComponent, ...],
-})
-```
- 
-### Modern Control Flow
-Using Angular's new control flow syntax:
-```html
-@if (condition) {
-  <div>Content</div>
-}
- 
-@for (item of items; track item.id) {
-  <app-item [data]="item" />
-}
-```
- 
+
 ## Installation and Usage
- 
+
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/juangodoygrando/Sprint_5_Angular.git
-   cd Sprint_5_Angular
+   git clone https://github.com/juangodoygrando/Coffeeroaster.git
+   cd Coffeeroaster
    ```
- 
+
 2. **Install the dependencies:**
    ```bash
    npm install
    ```
- 
+
 3. **Start the development server:**
    ```bash
    npm start
    ```
    Navigate to `http://localhost:4200/`
- 
+
 4. **Run unit tests:**
    ```bash
    npm test
    ```
- 
+
 5. **Run linting:**
    ```bash
    npm run lint
    ```
- 
+
 6. **Build for production:**
    ```bash
    npm run build
    ```
    Build artifacts will be stored in the `dist/cofferoasters` directory.
- 
+
 ## Main Dependencies
- 
+
 | Package | Version | Description |
 |---------|---------|-------------|
 | @angular/core | ^19.2.0 | Angular core framework |
@@ -190,60 +241,51 @@ Using Angular's new control flow syntax:
 | typescript | ~5.7.2 | TypeScript compiler |
 | karma | ~6.4.0 | Test runner |
 | jasmine-core | ~5.6.0 | Testing framework |
- 
+
 (See `package.json` for the complete list of dependencies)
- 
+
 ## Services
- 
+
 ### CoffeePlanService
 Manages the coffee subscription order state:
 - `set(step, value)` - Updates a specific field
 - `get()` - Returns current order state
 - `isOrderComplete()` - Validates if all required fields are filled
 - `getSelectedOptions()` - Returns detailed option information
- 
+
 ### PricingService
 Handles dynamic price calculation:
 - `calculatePrice()` - Computes total price based on selections
 - Considers brew method, bean type, bag size, and delivery frequency
 - Includes delivery fee calculations
- 
+
 ### WizardService
 Controls wizard navigation:
 - `currentStep` - Currently active step
 - `setCurrentStep(step)` - Navigate to a specific step
- 
+
 ## Testing
- 
-The project includes unit tests for critical business logic:
- 
+
 ```bash
-# Run all tests
 npm test
- 
-# Tests cover:
-# - Order state initialization
-# - State updates and validation
-# - Price calculation accuracy
-# - Special cases (Capsule without grind level)
 ```
- 
+
+Service tests cover:
+- Order state initialization
+- State updates and validation
+- Price calculation accuracy
+- Special cases (Capsule without grind level)
+
 Test files are located in `src/app/services/test/`.
- 
+
 ## Deployment
- 
-The project is configured for Netlify deployment:
-- `_redirects` file handles SPA routing
-- Production build optimized with budget limits
-- Assets are hashed for cache busting
- 
+
+The project is configured for Netlify:
+- `_redirects` handles SPA routing
+- Production build with budget limits
+- Hashed assets for cache busting
+
 ## Notes
- 
-- The application requires a modern browser with ES2022 support.
-- Tailwind CSS is configured with custom fonts (Barlow and Fraunces).
-- All routes redirect to `/create-plan` by default.
- 
- 👉 [Go to site](https://coffeeroasters-sprint5.netlify.app/create-plan)
----
- 
-Enjoy using Cofferoasters!
+
+- Requires a modern browser with ES2022 support.
+- Fonts: Fraunces (headings) and Barlow (body), loaded from Google Fonts.
